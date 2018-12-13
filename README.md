@@ -1,11 +1,11 @@
-### ENIN - Enumerate IPX nodes
+# ENIN - Enumerate IPX nodes
 
 This software was originally released in 2001, and lost in the depths
-of the internet a few years later. I'm re-reasing it in 2018, hope 
+of the internet a few years later. I'm re-releasing it in 2018, hope 
 someone will find it useful. --sq5bpf
 
 
-# Description:
+### Description:
 
 This is a program for discovering all IPX nodes on a network. 
 It works by sending an ipx ping packet to all nodes on a network.
@@ -19,7 +19,7 @@ uses all networks in /proc/net/ipx_route. If you want to limit the query
 to a single network use the -n option (like -n 12abc, -n 0 is always
 the local network).
 
-# Instalation:
+### Instalation:
 
 The usual:
 make
@@ -27,9 +27,11 @@ make install
 
 Please note that IPX must be installed and configured, for further 
 information refer to the IPX-HOWTO, it is advised to run ipxd or other
-software which updates the ipx routing table. A version of ipxd patched 
-to compile on glibc 2.x is avaliable at 
-http://acid.ch.pw.edu.pl/~sq5bpf/mylinux/ipxripd/
+software which updates the ipx routing table. 
+Note: the original ipxripd 0.7 package has to be patched to work with
+glibc. Various people have published patched versions which work with
+reacent header files, search on github for ipxripd for example.
+
 For starters try enin -a and see if it discovers anything.
 
 Usage: enin [options]
@@ -43,7 +45,7 @@ Avaliable options:
 -n NET: ping only single net
 -t sec: how much to wait for responses in seconds (default: 2)
 
-# Examples:
+### Examples:
 
 Show all nodes, parse the responses, and try to  identify what machines are
 present:
@@ -56,7 +58,7 @@ for the responses:
 enin -a -n 1dead -t 10
 
 
-# Bugs:
+### Bugs:
 
 I should've used getopt for the option parsing. I should ping the network 
 a few times, because some packets may be lost. Everything should probably 
@@ -66,14 +68,14 @@ to use the SPX diagnostic socket for something (but I couldn't find any
 documentation).
 
 
-# Feedback:
+### Feedback:
 
 Comments, questions, ports and other patches, and bug reports are welcome.
-Please send them to Jacek Lipkowski <sq5bpf@acid.ch.pw.edu.pl>. You might
+Please send them to Jacek Lipkowski <sq5bpf@lipkowski.org>. You might
 want to check if there is a newer version avaliable at:
-http://acid.ch.pw.edu.pl/~sq5bpf/mylinux/enin/
+https://github.com/sq5bpf/enin
 
-# Credits:
+### Credits:
 
 This program was written following the documentation at www.protocols.com,
 later i found a book by Novell Press titled "NetWare Lan Analysis", which
@@ -82,8 +84,8 @@ is documented), even later on i found the meaning of component 9
 (DOS Application) at some netware site. Various parts were cut'n'pasted 
 from ipxrcv.c and ipxsend.c from the ncpfs package.
 
-# License:
+### License:
 
-enin is distributed under the GNU Public License, a copy of which
+enin is distributed under the GNU Public License v2, a copy of which
 should have been provided with this archive as LICENSE.
 
